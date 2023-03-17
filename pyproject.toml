@@ -4,16 +4,53 @@ version = "0.1.0"
 description = ""
 authors = ["Dmytro Kostochko <dmytro.kostochko@hrforecast.de>"]
 readme = "README.md"
-packages = [{include = "hrf_universe_home_task"}]
+packages = []
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = "^0.94.0"
-psycopg2 = "^2.9.5"
+fastapi = {version = "^0.94.1"}
 sqlalchemy = "<1.4.10"
 alembic = "^1.10.2"
+psycopg2-binary = "^2.9.5"
+asyncpg = "^0.27.0"
+pydantic = {extras = ["dotenv"], version = "^1.10.6"}
+gunicorn = "^20.1.0"
+uvicorn = {extras = ["standard"], version = "^0.21.1"}
+orjson = "^3.8.7"
+python-dateutil = "^2.8.2"
+typer = "^0.7.0"
 
+
+[tool.poetry.group.black.dependencies]
+isort = "^5.12.0"
+flake8 = "^6.0.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+# === Black ===
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  | dist
+  | .pytest_cache
+  | .tox
+  | docs
+  | docs_src
+  | .venv
+  | .mypy_cache
+)/
+'''
+
+# === Isort ===
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 120
+skip_glob = []

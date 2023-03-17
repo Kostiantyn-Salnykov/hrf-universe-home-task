@@ -1,0 +1,5 @@
+[flake8]
+max-line-length = 120
+extend-ignore = E203, W503, W605, D107,
+exclude = __init__.py, dist, pgadmin_data, ./tests/*, ./docs/*
+docstring-convention = google

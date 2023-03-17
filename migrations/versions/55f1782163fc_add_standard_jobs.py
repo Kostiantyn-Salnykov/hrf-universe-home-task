@@ -1,13 +1,12 @@
 """Add standard jobs
 
 Revision ID: 55f1782163fc
-Revises: 
+Revises:
 Create Date: 2023-03-13 10:02:42.512580
 
 """
-from alembic import op
 import sqlalchemy as sa
-
+from alembic import op
 
 # revision identifiers, used by Alembic.
 revision = "55f1782163fc"
